@@ -31,7 +31,7 @@ export function Messages() {
         <li key={index} className="flex flex-col rounded p-4 bg-gray-900 mb-4 relative">
           <p className="text-base md:text-xl font-bold">{message.user}</p>
           <time className="absolute right-4 top-5 text-xs">{formatMessageDate(message.date)}</time>
-          <p className="text-sm md:text-base">{message.text}</p>
+          <p className="text-sm md:text-base break-all">{message.text}</p>
         </li>
       ))}
     </ul>
