@@ -1,4 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { SocketEvents } from "../../interfaces";
+import { socket } from "../../services";
 
 const NAME_MAX_LENGTH = 15
 
@@ -19,6 +21,7 @@ export function GreetingModal() {
     setIsOpen(false)
     localStorage.setItem('logged_as', name)
     setName('')
+    socket.emit(SocketEvents.USER_CONNECTED, localStorage.getItem('logged_as'))
   }
   if (!isOpen) return null
   return (
