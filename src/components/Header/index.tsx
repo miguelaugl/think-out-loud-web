@@ -12,7 +12,7 @@ export function Header() {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
     const messageSent = {
-      user: localStorage.getItem('logged_as'),
+      user: sessionStorage.getItem('logged_as'),
       text: message,
       date: new Date()
     }

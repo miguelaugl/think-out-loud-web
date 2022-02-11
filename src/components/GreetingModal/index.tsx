@@ -8,7 +8,7 @@ export function GreetingModal() {
   const [isOpen, setIsOpen] = useState(false)
   const [name, setName] = useState('')
   useEffect(() => {
-    const notLogged = !localStorage.getItem('logged_as');
+    const notLogged = !sessionStorage.getItem('logged_as');
     if (notLogged) {
       setIsOpen(true)
     }
@@ -19,9 +19,9 @@ export function GreetingModal() {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
     setIsOpen(false)
-    localStorage.setItem('logged_as', name)
+    sessionStorage.setItem('logged_as', name)
     setName('')
-    socket.emit(SocketEvents.USER_CONNECTED, localStorage.getItem('logged_as'))
+    socket.emit(SocketEvents.USER_CONNECTED, sessionStorage.getItem('logged_as'))
   }
   if (!isOpen) return null
   return (
