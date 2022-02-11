@@ -1,4 +1,4 @@
 import io from 'socket.io-client'
+import settings from '../settings'
 
-const SERVER = 'http://localhost:3333'
-export const socket = io(SERVER)
+export const socket = io(settings.apiUrl)
