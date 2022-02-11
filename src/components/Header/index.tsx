@@ -11,7 +11,12 @@ export function Header() {
   }
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
-    socket.emit(SocketEvents.MESSAGE_SENT, message)
+    const messageSent = {
+      user: localStorage.getItem('logged_as'),
+      text: message,
+      date: new Date()
+    }
+    socket.emit(SocketEvents.MESSAGE_SENT, messageSent)
     setMessage('')
   }
   return (
