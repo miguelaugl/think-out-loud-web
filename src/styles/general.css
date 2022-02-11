@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 #root {
-  @apply bg-slate-900 min-h-screen text-slate-50 flex flex-col;
+  @apply bg-gray-900 min-h-screen text-slate-50 flex flex-col;
 }
